@@ -1,0 +1,51 @@
+:root {
+    --pink-color: rgba(255, 112, 255, 1);
+    --purpleBtn-color: rgba(110, 0, 110, 1)
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    background-color: var(--purpleBtn-color);
+    font-weight: 750;
+    font-size: 16px;
+    color: whitesmoke;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 0;
+    width: 20%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 75px;
+}
+
+header a {
+    color: var(--pink-color);
+    text-decoration: none;
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.quiz-main {
+    text-align: center;
+}
+
+.alignLeft-container {
+    text-align: left;
+}
