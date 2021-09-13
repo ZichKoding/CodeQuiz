@@ -1,6 +1,7 @@
 :root {
     --pink-color: rgba(255, 112, 255, 1);
-    --purpleBtn-color: rgba(110, 0, 110, 1)
+    --purpleBtn-color: rgba(110, 0, 110, 1);
+    --btn-shadow: -2px 2px 5px rgba(0, 0, 0, 1);
 
 }
 
@@ -18,9 +19,16 @@ button {
     border: none;
     border-radius: 7px;
     padding: 7px 0;
+    margin-top: 10px;
     width: 150px;
+    box-shadow: var(--btn-shadow);
 }
 
+button:hover {
+    background-color: var(--pink-color);
+}
+
+/* HEADER START*/
 header {
     display: flex;
     justify-content: space-between;
@@ -37,6 +45,7 @@ header a {
     display: flex;
     justify-content: space-evenly;
 }
+/* HEADER END*/
 
 main {
     margin: auto;
@@ -63,4 +72,23 @@ main {
 
 .submit-next {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#correct-ans,
+#incorrect-ans {
+    text-align: left;
+    font-style: italic;
+    font-size: 30px;
+    opacity: 50%;
+    border-top: solid;
+    border-color: gray;
+    margin-top: 20px;
+}
+
+#user-input {
+    width: 300px;
+    height: 30px;
 }
