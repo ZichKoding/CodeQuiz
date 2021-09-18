@@ -107,12 +107,15 @@ function questionsh1El() {
 // determining if the user clicks a correct or incorrect answer
 function correctIncAns() {
     // dynamic variables
+    // variables for buttons
     var firstAnswer = document.getElementById("answer-0");
     var secondAnswer = document.getElementById("answer-1");
     var thirdAnswer = document.getElementById("answer-2");
     var fourthAnswer = document.getElementById("answer-3");
+
     var mainContainer = document.getElementById("main-container");
     var correctOrIncEl = document.createElement("h3");
+    
     var userInitialsInput = document.createElement("input");
     var submitInitials = document.createElement("button");
 
@@ -158,7 +161,11 @@ function correctIncAns() {
     
         
     firstAnswer.addEventListener("click", function answerAlpha() {
-        if (h1El.textContent === questions[0] || h1El.textContent === questions[2] || h1El.textContent === questions[5]) {
+        if (
+            h1El.textContent === questions[0] ||
+            h1El.textContent === questions[2] ||
+            h1El.textContent === questions[5]
+            ) {
             correctOrIncEl.remove();
             correcth3();
         } else {
@@ -171,7 +178,10 @@ function correctIncAns() {
 
 
     secondAnswer.addEventListener("click", function answerBeta() {
-        if (h1El.textContent === questions[1] || h1El.textContent === questions[3]){
+        if (
+            h1El.textContent === questions[1] ||
+            h1El.textContent === questions[3]
+            ){
             correctOrIncEl.remove();
             correcth3();
         } else {
