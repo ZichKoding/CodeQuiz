@@ -5,10 +5,11 @@ var startQuizEl = document.querySelector("#start-answer-btn");
 var startText = document.getElementById("beginning-text");
 var startAnswerBtn = document.getElementById("start-answer-btn");
 var btnContainer = document.getElementById("btn-container");
-
+var timeEl = document.querySelector(".time");
 // storing how the user did 
 var correctAnswers = 0;
 var inCorrectAnswers = 0;
+
 
 // objects for questions and answers
 var questions = [
@@ -68,7 +69,10 @@ var answers = [
 // Selecting a question and dynamically create the buttons
 var q = 0;
 function selectQsandAs() {
+    // var q = Math.floor(Math.random() * questions.length);
+    // console.log(questions[q]);
     h1El.textContent = questions[q];
+
 
     for (let i = 0; i < 4; i++) {
         var answerBtns = document.createElement("button");
@@ -94,31 +98,91 @@ function selectQsandAs() {
         }
     }
     q++;
-}
-
+};
 
 
 // removing start button with multiple choice buttons
 function questionsh1El() {
     startText.remove();
     selectQsandAs();
-}
+};
 
 // determining if the user clicks a correct or incorrect answer
 function correctIncAns() {
+<<<<<<< HEAD
     // dynamic variables
     // variables for buttons
+=======
+    // creates a timecounter
+    var timeCount = setInterval(() => {
+        if (parseInt(timeEl.textContent) > 0) {
+            timeEl.textContent--;
+        }
+        else {
+            displayScore();
+        }
+    }, 1000);
+    // multiple choice button variables
+>>>>>>> feature/timehighscorelogic
     var firstAnswer = document.getElementById("answer-0");
     var secondAnswer = document.getElementById("answer-1");
     var thirdAnswer = document.getElementById("answer-2");
     var fourthAnswer = document.getElementById("answer-3");
+<<<<<<< HEAD
 
     var mainContainer = document.getElementById("main-container");
     var correctOrIncEl = document.createElement("h3");
     
     var userInitialsInput = document.createElement("input");
     var submitInitials = document.createElement("button");
+=======
+    
+    // variables for after quiz has finished
+    var mainContainer = document.getElementById("main-container");
+    var correctOrIncEl = document.createElement("h3");
+>>>>>>> feature/timehighscorelogic
 
+    
+    // display score after list of questions run out 
+    function displayScore() {
+        var totalAnswered = correctAnswers + inCorrectAnswers;
+        if (totalAnswered >= questions.length || parseInt(timeEl.textContent) <= 0) {
+            clearInterval(timeCount);
+            h1El.textContent = "You scored " + correctAnswers + " out of " + questions.length;
+            firstAnswer.remove();
+            secondAnswer.remove();
+            thirdAnswer.remove();
+            fourthAnswer.remove();
+            correctOrIncEl.remove();
+            inputInitials();
+        }
+        if (timeEl.textContent <= 0) {
+            timeEl.textContent = 0;
+        }
+
+    }
+
+    // user submits initials
+    function inputInitials() {
+        // variables for user to input their initials
+        var userInitialsInput = document.createElement("input");
+        var submitInitials = document.createElement("button");
+
+        userInitialsInput.id = "user-input";
+        userInitialsInput.placeholder = "Enter your initials here";
+        submitInitials.id = "start-answer-btn";
+        submitInitials.textContent = "Submit";
+        submitInitials.type = "submit";
+
+        btnContainer.appendChild(userInitialsInput);
+        btnContainer.appendChild(submitInitials);
+
+        // on submit store the users initials and score in percentage
+        submitInitials.addEventListener("click", function() {
+            localStorage.setItem(userInitialsInput.value, JSON.stringify(Math.round((correctAnswers/questions.length) * 100)) );
+            userInitialsInput.value = "";
+        });
+    };
 
     function correcth3() {
         correctOrIncEl.id = "correct-ans";
@@ -132,34 +196,10 @@ function correctIncAns() {
         correctOrIncEl.textContent = "Previous answer is Incorrect!"
         mainContainer.appendChild(correctOrIncEl);
         inCorrectAnswers++;
+        timeEl.textContent -= 15;
     }
 
-    // display score after list of questions run out 
-    function displayScore() {
-        var totalAnswered = correctAnswers + inCorrectAnswers;
-        if (totalAnswered >= questions.length) {
-            h1El.textContent = "You scored " + correctAnswers + " out of " + inCorrectAnswers;
-            firstAnswer.remove();
-            secondAnswer.remove();
-            thirdAnswer.remove();
-            fourthAnswer.remove();
-            correctOrIncEl.remove();
-            inputInitials();
-        }
-    }
-
-    //
-    function inputInitials() {
-        userInitialsInput.id = "user-input";
-        userInitialsInput.placeholder = "Enter your initials here";
-        submitInitials.id = "start-answer-btn";
-        submitInitials.textContent = "Submit";
-
-        btnContainer.appendChild(userInitialsInput);
-        btnContainer.appendChild(submitInitials);
-    }
-    
-        
+    console.log(timeEl.textContent);
     firstAnswer.addEventListener("click", function answerAlpha() {
         if (
             h1El.textContent === questions[0] ||
@@ -177,11 +217,16 @@ function correctIncAns() {
     });
 
 
+<<<<<<< HEAD
     secondAnswer.addEventListener("click", function answerBeta() {
         if (
             h1El.textContent === questions[1] ||
             h1El.textContent === questions[3]
             ){
+=======
+    secondAnswer.addEventListener("click", function answerBravo() {
+        if (h1El.textContent === questions[1] || h1El.textContent === questions[3]) {
+>>>>>>> feature/timehighscorelogic
             correctOrIncEl.remove();
             correcth3();
         } else {
@@ -215,11 +260,12 @@ function correctIncAns() {
         questionsh1El();
         displayScore();
     });
-
 };
+
 
 // main function for starting the quiz
 startQuizEl.addEventListener("click", function nextQuestion() {
     questionsh1El();
     correctIncAns();
 });
+

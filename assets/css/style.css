@@ -94,3 +94,38 @@ main {
     width: 300px;
     height: 30px;
 }
+
+.hiscore-list {
+    list-style: none;
+    margin-top: 15px;
+    padding: 2px 5px;
+    background-color: rgba(255, 112, 255, 0.5);
+    border-radius: 5px;
+}
+
+.hiscore-list li::first-letter {
+    font-weight: bold;
+}
+
+.hiscore-btns {
+    margin-top: 7px;
+    display: flex;
+}
+
+#go-back {
+    margin-right: 10px;
+    width: 75px;
+}
+#go-back a {
+    text-decoration: none;
+    color: white;
+}
+
+.elevated {
+    box-shadow: var(--btn-shadow);
+    border-radius: 5px;
+}
+
+.high {
+    padding: 5px;
+}
