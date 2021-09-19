@@ -33,24 +33,6 @@ function hiScoreList() {
         placedNum++;
     }
 
-    // for (let i = 0; i < localStorage.length; i++) {
-    //     percentAnswer = localStorage.getItem(localStorage.key(i));
-    //     localKey = localStorage.key(i);
-    //     sortVar.push({localKey, percentAnswer})
-    //     console.log(sortVar);
-
-
-    //     let hiList = document.createElement("li")
-    //     hiList.textContent = placedNum + ". " + localStorage.key(i) + " - " + percentAnswer.replace('"', '') + "%";
-    //     sortVar = hiList.textContent;
-
-
-
-    //     placedNum++;
-    //     console.log(hiList.textContent);
-    //     hiScoreContainer.appendChild(hiList);
-    // }
-
 }
 
 

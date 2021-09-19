@@ -109,10 +109,6 @@ function questionsh1El() {
 
 // determining if the user clicks a correct or incorrect answer
 function correctIncAns() {
-<<<<<<< HEAD
-    // dynamic variables
-    // variables for buttons
-=======
     // creates a timecounter
     var timeCount = setInterval(() => {
         if (parseInt(timeEl.textContent) > 0) {
@@ -123,24 +119,14 @@ function correctIncAns() {
         }
     }, 1000);
     // multiple choice button variables
->>>>>>> feature/timehighscorelogic
     var firstAnswer = document.getElementById("answer-0");
     var secondAnswer = document.getElementById("answer-1");
     var thirdAnswer = document.getElementById("answer-2");
     var fourthAnswer = document.getElementById("answer-3");
-<<<<<<< HEAD
-
-    var mainContainer = document.getElementById("main-container");
-    var correctOrIncEl = document.createElement("h3");
-    
-    var userInitialsInput = document.createElement("input");
-    var submitInitials = document.createElement("button");
-=======
     
     // variables for after quiz has finished
     var mainContainer = document.getElementById("main-container");
     var correctOrIncEl = document.createElement("h3");
->>>>>>> feature/timehighscorelogic
 
     
     // display score after list of questions run out 
@@ -217,16 +203,8 @@ function correctIncAns() {
     });
 
 
-<<<<<<< HEAD
-    secondAnswer.addEventListener("click", function answerBeta() {
-        if (
-            h1El.textContent === questions[1] ||
-            h1El.textContent === questions[3]
-            ){
-=======
     secondAnswer.addEventListener("click", function answerBravo() {
         if (h1El.textContent === questions[1] || h1El.textContent === questions[3]) {
->>>>>>> feature/timehighscorelogic
             correctOrIncEl.remove();
             correcth3();
         } else {
