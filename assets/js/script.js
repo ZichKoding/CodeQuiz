@@ -165,9 +165,13 @@ function correctIncAns() {
 
         // on submit store the users initials and score in percentage
         submitInitials.addEventListener("click", function() {
-            localStorage.setItem(userInitialsInput.value, JSON.stringify(Math.round((correctAnswers/questions.length) * 100)) );
+            let initials = userInitialsInput.value;
+            let percentageAnswer = Math.round((correctAnswers/questions.length) * 100);
+            console.log(initials);
+            localStorage.setItem( initials, JSON.stringify(percentageAnswer) );
             userInitialsInput.value = "";
         });
+
     };
 
     function correcth3() {
